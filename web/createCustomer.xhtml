@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="Ajouter un client"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="Ajouter un client"/></h1>
+        
+        <h:form id="createCustomer">
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="ID : "/>
+                <h:inputText id="id" value="#{CustomerCreateBean.id}" required="true" requiredMessage="Un numero est requis"/>
+                
+                <h:outputLabel for="firstname" value="Prénom : "/>
+                <h:inputText id="firstname" value="#{CustomerCreateBean.firstName}" required="true" requiredMessage="Un Prénom est requis"/>
+                
+                <h:outputLabel for="lastname" value="Nom de famille : "/>
+                <h:inputText id="lastname" value="#{CustomerCreateBean.lastName}" required="true" requiredMessage="Un nom de famille est requis"/>
+            </h:panelGrid>
+            <br/>
+
+            <h:commandButton type="reset" id="reset" value="Reset"/>
+
+            <h:commandButton type="submit" id="submit" value="Valider" action="#{CustomerCreateBean.submit()}"/>
+            <br/><br/>
+
+            <h:commandButton id="cancel" value="Annuler" action="cancel" immediate="true"/>
+
+            <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
+        </h:form>
+    </h:body>
+</html>
